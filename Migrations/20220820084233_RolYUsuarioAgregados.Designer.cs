@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PolloRapiApi.Data;
 
@@ -11,9 +12,10 @@ using PolloRapiApi.Data;
 namespace PolloRapiApi.Migrations
 {
     [DbContext(typeof(PolloRapiContext))]
-    partial class PolloRapiContextModelSnapshot : ModelSnapshot
+    [Migration("20220820084233_RolYUsuarioAgregados")]
+    partial class RolYUsuarioAgregados
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,32 +23,6 @@ namespace PolloRapiApi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("PolloRapiApi.Models.Cuentas", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Contrasena")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NombreUsuario")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("UsuarioId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UsuarioId");
-
-                    b.ToTable("Cuentas");
-                });
 
             modelBuilder.Entity("PolloRapiApi.Models.Enumerado", b =>
                 {
@@ -299,17 +275,6 @@ namespace PolloRapiApi.Migrations
                     b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity("PolloRapiApi.Models.Cuentas", b =>
-                {
-                    b.HasOne("PolloRapiApi.Models.Usuario", "Usuario")
-                        .WithMany("Cuentas")
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Usuario");
-                });
-
             modelBuilder.Entity("PolloRapiApi.Models.EnumeradoJerarquia", b =>
                 {
                     b.HasOne("PolloRapiApi.Models.Enumerado", "Ancestro")
@@ -444,11 +409,6 @@ namespace PolloRapiApi.Migrations
             modelBuilder.Entity("PolloRapiApi.Models.Rol", b =>
                 {
                     b.Navigation("Usuarios");
-                });
-
-            modelBuilder.Entity("PolloRapiApi.Models.Usuario", b =>
-                {
-                    b.Navigation("Cuentas");
                 });
 #pragma warning restore 612, 618
         }

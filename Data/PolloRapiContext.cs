@@ -1,4 +1,4 @@
-﻿    using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using PolloRapiApi.Models;
 
 namespace PolloRapiApi.Data
@@ -17,6 +17,9 @@ namespace PolloRapiApi.Data
         public DbSet<EnumeradoJerarquia> EnumeradoJerarquias { get; set; }
         public DbSet<Pedido> Pedidos { get; set; }
         public DbSet<PedidoDetalle> PedidoDetalles { get; set; }
+        public DbSet<Rol> Roles { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Cuentas> Cuentas { get; set; }
 
 
         #region Required
