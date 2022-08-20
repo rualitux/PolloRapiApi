@@ -13,7 +13,7 @@
 
         public ICollection<ProductoPromocion>? ProductoPromociones { get; set; }
         public ICollection<Pedido>? Pedidos { get; set; }
-        public ICollection<Comprobante> MedioPagos { get; set; }
-        public ICollection<Comprobante> TipoDocumentos { get; set; }
+        public ICollection<Comprobante>? MedioPagos { get; set; }
+        public ICollection<Comprobante>? TipoDocumentos { get; set; }
     }
 }

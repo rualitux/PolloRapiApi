@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PolloRapiApi.Data;
 
@@ -11,9 +12,10 @@ using PolloRapiApi.Data;
 namespace PolloRapiApi.Migrations
 {
     [DbContext(typeof(PolloRapiContext))]
-    partial class PolloRapiContextModelSnapshot : ModelSnapshot
+    [Migration("20220820094935_ComprobanteAgregado")]
+    partial class ComprobanteAgregado
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,7 +54,7 @@ namespace PolloRapiApi.Migrations
 
                     b.HasIndex("TipoDocumentoId");
 
-                    b.ToTable("Comprobantes", (string)null);
+                    b.ToTable("Comprobantes");
                 });
 
             modelBuilder.Entity("PolloRapiApi.Models.Cuentas", b =>
@@ -78,7 +80,7 @@ namespace PolloRapiApi.Migrations
 
                     b.HasIndex("UsuarioId");
 
-                    b.ToTable("Cuentas", (string)null);
+                    b.ToTable("Cuentas");
                 });
 
             modelBuilder.Entity("PolloRapiApi.Models.Enumerado", b =>
@@ -99,7 +101,7 @@ namespace PolloRapiApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Enumerado", (string)null);
+                    b.ToTable("Enumerado");
                 });
 
             modelBuilder.Entity("PolloRapiApi.Models.EnumeradoJerarquia", b =>
@@ -114,7 +116,7 @@ namespace PolloRapiApi.Migrations
 
                     b.HasIndex("DescendienteId");
 
-                    b.ToTable("EnumeradoJerarquias", (string)null);
+                    b.ToTable("EnumeradoJerarquias");
                 });
 
             modelBuilder.Entity("PolloRapiApi.Models.Pedido", b =>
@@ -138,7 +140,7 @@ namespace PolloRapiApi.Migrations
 
                     b.HasIndex("EnumeradoId");
 
-                    b.ToTable("Pedidos", (string)null);
+                    b.ToTable("Pedidos");
                 });
 
             modelBuilder.Entity("PolloRapiApi.Models.PedidoDetalle", b =>
@@ -177,7 +179,7 @@ namespace PolloRapiApi.Migrations
 
                     b.HasIndex("PromocionId");
 
-                    b.ToTable("PedidoDetalles", (string)null);
+                    b.ToTable("PedidoDetalles");
                 });
 
             modelBuilder.Entity("PolloRapiApi.Models.Producto", b =>
@@ -211,7 +213,7 @@ namespace PolloRapiApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Productos", (string)null);
+                    b.ToTable("Productos");
                 });
 
             modelBuilder.Entity("PolloRapiApi.Models.ProductoPromocion", b =>
@@ -239,7 +241,7 @@ namespace PolloRapiApi.Migrations
 
                     b.HasIndex("PromocionId");
 
-                    b.ToTable("ProductoPromociones", (string)null);
+                    b.ToTable("ProductoPromociones");
                 });
 
             modelBuilder.Entity("PolloRapiApi.Models.Promocion", b =>
@@ -266,7 +268,7 @@ namespace PolloRapiApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Promociones", (string)null);
+                    b.ToTable("Promociones");
                 });
 
             modelBuilder.Entity("PolloRapiApi.Models.Rol", b =>
@@ -289,7 +291,7 @@ namespace PolloRapiApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles", (string)null);
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("PolloRapiApi.Models.Usuario", b =>
@@ -329,7 +331,7 @@ namespace PolloRapiApi.Migrations
 
                     b.HasIndex("RolId");
 
-                    b.ToTable("Usuarios", (string)null);
+                    b.ToTable("Usuarios");
                 });
 
             modelBuilder.Entity("PolloRapiApi.Models.Comprobante", b =>

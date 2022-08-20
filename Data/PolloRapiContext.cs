@@ -20,6 +20,7 @@ namespace PolloRapiApi.Data
         public DbSet<Rol> Roles { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Cuentas> Cuentas { get; set; }
+        public DbSet<Comprobante> Comprobantes { get; set; }
 
 
         #region Required
@@ -43,8 +44,20 @@ namespace PolloRapiApi.Data
 
             modelBuilder.Entity<EnumeradoJerarquia>()
              .HasKey(p => new { p.AncestroId, p.DescendienteId });
+            //PARA COMPROBANTE
+            //modelBuilder.Entity<Comprobante>()
+           // .HasKey(p => new { p.Id, p.MedioPagoId, p.TipoDocumentoId });
 
-
+            modelBuilder.Entity<Enumerado>().
+           HasMany(p => p.MedioPagos)
+           .WithOne(d => d.TipoDocumento)
+          .HasForeignKey(d => d.TipoDocumentoId)
+           .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Enumerado>().
+                HasMany(p => p.TipoDocumentos)
+                .WithOne(d => d.MedioPago)
+               .HasForeignKey(d => d.MedioPagoId)
+                .OnDelete(DeleteBehavior.Restrict);
 
 
 
