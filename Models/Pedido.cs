@@ -18,6 +18,10 @@ namespace PolloRapiApi.Models
 
         public Enumerado? Estado { get; set; }
 
+        public ICollection<PedidoDetalle>? PedidoDetalles { get; set; }
+
+
+
 
     }
 }

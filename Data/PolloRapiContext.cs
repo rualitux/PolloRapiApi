@@ -16,6 +16,7 @@ namespace PolloRapiApi.Data
 
         public DbSet<EnumeradoJerarquia> EnumeradoJerarquias { get; set; }
         public DbSet<Pedido> Pedidos { get; set; }
+        public DbSet<PedidoDetalle> PedidoDetalles { get; set; }
 
 
         #region Required

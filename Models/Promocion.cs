@@ -15,5 +15,7 @@ namespace PolloRapiApi.Models
 
         public ICollection<ProductoPromocion>? ProductoPromociones { get; set; }
 
+        public ICollection<PedidoDetalle>? PedidoDetalles { get; set; }
+
     }
 }

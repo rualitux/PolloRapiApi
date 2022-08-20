@@ -10,5 +10,8 @@
         //public ICollection<Enumerado>? Hijo { get; set; }
         public ICollection<EnumeradoJerarquia>? Ancestros { get; set; }
         public ICollection<EnumeradoJerarquia>? Descendientes { get; set; }
+
+        public ICollection<ProductoPromocion>? ProductoPromociones { get; set; }
+        public ICollection<Pedido>? Pedidos { get; set; }
     }
 }

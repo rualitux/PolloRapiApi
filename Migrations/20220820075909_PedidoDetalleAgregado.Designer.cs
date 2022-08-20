@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PolloRapiApi.Data;
 
@@ -11,9 +12,10 @@ using PolloRapiApi.Data;
 namespace PolloRapiApi.Migrations
 {
     [DbContext(typeof(PolloRapiContext))]
-    partial class PolloRapiContextModelSnapshot : ModelSnapshot
+    [Migration("20220820075909_PedidoDetalleAgregado")]
+    partial class PedidoDetalleAgregado
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
