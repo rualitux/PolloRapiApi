@@ -40,7 +40,7 @@ namespace PolloRapiApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Enumerado", (string)null);
+                    b.ToTable("Enumerado");
                 });
 
             modelBuilder.Entity("PolloRapiApi.Models.EnumeradoJerarquia", b =>
@@ -55,7 +55,31 @@ namespace PolloRapiApi.Migrations
 
                     b.HasIndex("DescendienteId");
 
-                    b.ToTable("EnumeradoJerarquias", (string)null);
+                    b.ToTable("EnumeradoJerarquias");
+                });
+
+            modelBuilder.Entity("PolloRapiApi.Models.Pedido", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("EnumeradoId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<TimeSpan>("Hora")
+                        .HasColumnType("time");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EnumeradoId");
+
+                    b.ToTable("Pedidos");
                 });
 
             modelBuilder.Entity("PolloRapiApi.Models.Producto", b =>
@@ -89,7 +113,7 @@ namespace PolloRapiApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Productos", (string)null);
+                    b.ToTable("Productos");
                 });
 
             modelBuilder.Entity("PolloRapiApi.Models.ProductoPromocion", b =>
@@ -117,7 +141,7 @@ namespace PolloRapiApi.Migrations
 
                     b.HasIndex("PromocionId");
 
-                    b.ToTable("ProductoPromociones", (string)null);
+                    b.ToTable("ProductoPromociones");
                 });
 
             modelBuilder.Entity("PolloRapiApi.Models.Promocion", b =>
@@ -144,7 +168,7 @@ namespace PolloRapiApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Promociones", (string)null);
+                    b.ToTable("Promociones");
                 });
 
             modelBuilder.Entity("PolloRapiApi.Models.EnumeradoJerarquia", b =>
@@ -164,6 +188,17 @@ namespace PolloRapiApi.Migrations
                     b.Navigation("Ancestro");
 
                     b.Navigation("Descendiente");
+                });
+
+            modelBuilder.Entity("PolloRapiApi.Models.Pedido", b =>
+                {
+                    b.HasOne("PolloRapiApi.Models.Enumerado", "Estado")
+                        .WithMany()
+                        .HasForeignKey("EnumeradoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Estado");
                 });
 
             modelBuilder.Entity("PolloRapiApi.Models.ProductoPromocion", b =>

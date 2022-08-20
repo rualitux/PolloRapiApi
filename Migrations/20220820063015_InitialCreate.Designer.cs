@@ -12,14 +12,14 @@ using PolloRapiApi.Data;
 namespace PolloRapiApi.Migrations
 {
     [DbContext(typeof(PolloRapiContext))]
-    [Migration("20220820024043_EnumeradoAgregado")]
-    partial class EnumeradoAgregado
+    [Migration("20220820063015_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.7")
+                .HasAnnotation("ProductVersion", "6.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -57,7 +57,7 @@ namespace PolloRapiApi.Migrations
 
                     b.HasIndex("DescendienteId");
 
-                    b.ToTable("EnumeradoJerarquia");
+                    b.ToTable("EnumeradoJerarquias");
                 });
 
             modelBuilder.Entity("PolloRapiApi.Models.Producto", b =>

@@ -5,20 +5,19 @@ namespace PolloRapiApi.Models
     public class Pedido
     {
 
+
         public int Id { get; set; }
 
-        [DataType(DataType.Date)]
-
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime Fecha { get; set; }
 
         [DataType(DataType.Time)]
-
-        public DateTime Hora { get; set; }
+        public TimeSpan Hora { get; set; }
 
         public int EnumeradoId { get; set; }
 
         public Enumerado? Estado { get; set; }
 
+
     }
 }
-
